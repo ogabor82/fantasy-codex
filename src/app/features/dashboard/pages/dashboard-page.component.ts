@@ -8,7 +8,7 @@ import { MOCK_LOCATIONS } from '../../../core/models/location.model';
   selector: 'app-dashboard-page',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './dashboard-page.component.html'
+  templateUrl: 'dashboard-page.component.html'
 })
 export class DashboardPageComponent {
   protected readonly stats = [

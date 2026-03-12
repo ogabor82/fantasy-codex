@@ -17,18 +17,18 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render the shell title', async () => {
+  it('should render the shell title in the side navigation', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.brand-title')?.textContent).toContain('Fantasy Codex');
+    expect(compiled.querySelector('app-side-nav .brand-title')?.textContent).toContain('Fantasy Codex');
   });
 
   it('should include navigation links for all top-level routes', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
 
-    const links = [...fixture.nativeElement.querySelectorAll('nav a')] as HTMLAnchorElement[];
+    const links = [...fixture.nativeElement.querySelectorAll('app-side-nav nav a')] as HTMLAnchorElement[];
     const hrefs = links.map((link) => link.getAttribute('href'));
 
     expect(hrefs).toEqual(['/', '/characters', '/factions', '/locations']);

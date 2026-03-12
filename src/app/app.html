@@ -1,50 +1,8 @@
-<div class="min-h-dvh bg-[radial-gradient(circle_at_top,_#1f2937,_#111827_50%)] text-gray-200 font-sans">
-  <div class="mx-auto max-w-[1100px] p-4">
-    <header class="flex flex-wrap justify-between gap-4 rounded-xl border border-gray-700 bg-gray-900/75 p-4">
-      <div>
-        <p class="m-0 text-xs uppercase tracking-[0.08em] text-gray-400">Worldbuilding Admin</p>
-        <a
-          class="brand-title mt-[0.2rem] inline-block text-2xl font-bold text-gray-50 no-underline"
-          routerLink="/"
-        >
-          {{ appTitle }}
-        </a>
-      </div>
+<div class="min-h-dvh bg-[radial-gradient(circle_at_top_left,_#241343_0%,_#10091f_35%,_#080410_80%)] text-gray-100">
+  <div class="mx-auto flex w-full max-w-[1240px] flex-col gap-4 p-4 lg:flex-row lg:items-start">
+    <app-side-nav [appTitle]="appTitle"></app-side-nav>
 
-      <nav class="flex flex-wrap items-center gap-2" aria-label="Primary">
-        <a
-          routerLink="/"
-          routerLinkActive="border-gray-500 bg-gray-800 text-gray-50"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="rounded-lg border border-transparent px-3 py-2 text-gray-300 no-underline hover:border-gray-600 hover:text-gray-50"
-        >
-          Dashboard
-        </a>
-        <a
-          routerLink="/characters"
-          routerLinkActive="border-gray-500 bg-gray-800 text-gray-50"
-          class="rounded-lg border border-transparent px-3 py-2 text-gray-300 no-underline hover:border-gray-600 hover:text-gray-50"
-        >
-          Characters
-        </a>
-        <a
-          routerLink="/factions"
-          routerLinkActive="border-gray-500 bg-gray-800 text-gray-50"
-          class="rounded-lg border border-transparent px-3 py-2 text-gray-300 no-underline hover:border-gray-600 hover:text-gray-50"
-        >
-          Factions
-        </a>
-        <a
-          routerLink="/locations"
-          routerLinkActive="border-gray-500 bg-gray-800 text-gray-50"
-          class="rounded-lg border border-transparent px-3 py-2 text-gray-300 no-underline hover:border-gray-600 hover:text-gray-50"
-        >
-          Locations
-        </a>
-      </nav>
-    </header>
-
-    <main class="mt-4 min-h-[60dvh] rounded-xl border border-gray-700 bg-gray-900/70 p-5">
+    <main class="w-full rounded-2xl border border-[#241343] bg-[#0f0a1c]/90 p-5 lg:min-h-[calc(100dvh-2rem)] lg:flex-1 lg:p-7">
       <router-outlet></router-outlet>
     </main>
   </div>
