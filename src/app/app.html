@@ -1,9 +1,7 @@
-<div class="min-h-dvh bg-[radial-gradient(circle_at_top_left,_#241343_0%,_#10091f_35%,_#080410_80%)] text-gray-100">
-  <div class="mx-auto flex w-full max-w-[1240px] flex-col gap-4 p-4 lg:flex-row lg:items-start">
-    <app-side-nav [appTitle]="appTitle"></app-side-nav>
+<div class="flex h-screen overflow-hidden bg-[var(--color-background-light)] text-slate-900 dark:bg-[var(--color-background-dark)] dark:text-slate-100 antialiased">
+  <app-side-nav [appTitle]="appTitle"></app-side-nav>
 
-    <main class="w-full rounded-2xl border border-[#241343] bg-[#0f0a1c]/90 p-5 lg:min-h-[calc(100dvh-2rem)] lg:flex-1 lg:p-7">
-      <router-outlet></router-outlet>
-    </main>
-  </div>
+  <main class="flex min-w-0 flex-1 overflow-y-auto bg-[var(--color-background-light)] dark:bg-[color-mix(in_oklab,var(--color-background-dark)_90%,black)]">
+    <router-outlet></router-outlet>
+  </main>
 </div>
