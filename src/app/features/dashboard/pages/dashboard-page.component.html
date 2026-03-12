@@ -1,0 +1,113 @@
+<section class="space-y-6">
+  <div class="flex items-center justify-between">
+    <h1 class="text-3xl font-semibold text-gray-100">World Overview</h1>
+    <button
+      type="button"
+      class="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-violet-50 transition hover:bg-violet-500"
+    >
+      + New Entry
+    </button>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-3">
+    @for (stat of stats; track stat.label) {
+      <article class="rounded-xl border border-violet-950 bg-violet-950/40 p-5">
+        <div class="flex items-start justify-between">
+          <div>
+            <p class="text-sm text-gray-400">{{ stat.label }}</p>
+            <p class="mt-1 text-4xl font-bold text-gray-100">{{ stat.value }}</p>
+            <p class="mt-2 text-sm text-emerald-400">{{ stat.meta }}</p>
+          </div>
+
+          <div class="rounded-lg bg-violet-900/60 p-2 text-violet-300">
+            @if (stat.icon === 'users') {
+              <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="8.5" cy="7" r="3" />
+                <path d="M20 8v6" />
+                <path d="M23 11h-6" />
+              </svg>
+            }
+            @if (stat.icon === 'castle') {
+              <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 21h18" />
+                <path d="M5 21V7l3 2V5l4 2V3l4 2v4l3-2v14" />
+                <path d="M10 21v-4h4v4" />
+              </svg>
+            }
+            @if (stat.icon === 'compass') {
+              <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9" />
+                <path d="m16.5 7.5-3.2 9.2-9.2 3.2 3.2-9.2z" />
+              </svg>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+
+  <div class="grid gap-6 lg:grid-cols-[1.8fr_1fr]">
+    <section>
+      <div class="mb-3 flex items-center justify-between">
+        <h2 class="text-3xl font-semibold text-gray-100">Recent Characters</h2>
+        <a routerLink="/characters" class="text-sm font-medium text-violet-400 hover:text-violet-300">View All</a>
+      </div>
+
+      <div class="rounded-xl border border-violet-950 bg-violet-950/40">
+        @for (character of recentCharacters; track character.id) {
+          <a
+            routerLink="/characters"
+            class="flex items-center justify-between gap-4 border-b border-violet-950 px-4 py-4 transition hover:bg-violet-950/40 last:border-b-0"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="grid size-11 place-items-center rounded-lg bg-gradient-to-br from-violet-700 to-fuchsia-700 text-sm font-semibold text-violet-100"
+              >
+                {{ character.name.slice(0, 1) }}
+              </div>
+              <div>
+                <p class="text-2xl font-semibold text-gray-100">{{ character.name }}</p>
+                <p class="text-sm text-gray-400">{{ character.updatedLabel }} • {{ character.race }} {{ character.title }}</p>
+              </div>
+            </div>
+            <span class="text-2xl text-violet-300">›</span>
+          </a>
+        }
+      </div>
+    </section>
+
+    <aside class="space-y-4">
+      <section class="rounded-xl border border-violet-950 bg-violet-950/40 p-4">
+        <h2 class="mb-3 text-3xl font-semibold text-gray-100">World Map Preview</h2>
+        <div class="overflow-hidden rounded-lg border border-gray-800">
+          <div
+            aria-label="Stylized world map preview"
+            class="relative h-52 w-full bg-[radial-gradient(circle_at_center,_#334155_10%,_#0b1020_70%)]"
+          >
+            <div class="absolute left-10 top-14 h-14 w-24 rounded-[40%] bg-slate-500/30 blur-[1px]"></div>
+            <div class="absolute left-40 top-10 h-20 w-28 rounded-[45%] bg-slate-400/25 blur-[1px]"></div>
+            <div class="absolute right-16 top-20 h-16 w-24 rounded-[42%] bg-slate-500/30 blur-[1px]"></div>
+            <div class="absolute right-28 top-8 h-10 w-14 rounded-[50%] bg-slate-400/20 blur-[1px]"></div>
+          </div>
+        </div>
+        <div class="mt-3 rounded-lg border border-violet-900 bg-black/20 p-3">
+          <p class="text-xs font-semibold uppercase tracking-[0.08em] text-violet-400">Active Region</p>
+          <p class="mt-1 text-3xl font-semibold text-gray-100">{{ activeRegion.name }}</p>
+          <p class="text-sm text-gray-400">Home to the {{ activeFaction.name }}</p>
+        </div>
+      </section>
+
+      <section class="rounded-xl border border-violet-950 bg-violet-950/40 p-4">
+        <h3 class="text-lg font-semibold text-gray-100">Popular Tags</h3>
+        <div class="mt-3 flex flex-wrap gap-2">
+          @for (tag of popularTags; track tag) {
+            <span class="rounded-md bg-violet-900/80 px-2 py-1 text-xs font-semibold tracking-wide text-violet-200">
+              {{ tag }}
+            </span>
+          }
+        </div>
+      </section>
+    </aside>
+  </div>
+</section>

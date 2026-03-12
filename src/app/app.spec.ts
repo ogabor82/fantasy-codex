@@ -42,6 +42,6 @@ describe('App', () => {
     await fixture.whenStable();
 
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('Welcome to the codex dashboard.');
+    expect(compiled.textContent).toContain('World Overview');
   });
 });
