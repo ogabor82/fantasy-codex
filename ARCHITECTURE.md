@@ -344,6 +344,10 @@ These should be introduced only after the core architecture is stable.
 
 ---
 
+# CSS styling
+
+Use Tailwind css
+
 # Summary
 
 The architecture of Fantasy Codex emphasizes:
