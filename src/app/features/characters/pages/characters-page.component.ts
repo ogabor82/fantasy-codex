@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
+import { CharacterListComponent } from '../components/character-list/character-list.component';
 
 @Component({
   selector: 'app-characters-page',
   standalone: true,
+  imports: [CharacterListComponent],
   template: `
-    <section class="space-y-3">
-      <p class="text-xs uppercase tracking-[0.08em] text-gray-400">Characters</p>
-      <h1 class="text-3xl font-semibold text-gray-50">Character List</h1>
-      <p class="text-gray-300">Character feature landing page for upcoming list and detail views.</p>
-    </section>
+    <app-character-list></app-character-list>
   `
 })
 export class CharactersPageComponent {}
