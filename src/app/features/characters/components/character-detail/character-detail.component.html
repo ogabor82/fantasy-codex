@@ -1,0 +1,50 @@
+<section class="mx-auto max-w-4xl space-y-6">
+  <a routerLink="/characters" class="inline-flex items-center gap-2 text-sm font-medium text-violet-300 hover:text-violet-200">
+    <span aria-hidden="true">&larr;</span>
+    Back to Characters
+  </a>
+
+  @if (character(); as currentCharacter) {
+    <article class="overflow-hidden rounded-2xl border border-violet-900/70 bg-[#150726]">
+      <div class="grid gap-0 lg:grid-cols-[1.1fr_1fr]">
+        <img [src]="currentCharacter.portraitUrl" [alt]="currentCharacter.name + ' portrait'" class="h-full min-h-72 w-full object-cover" />
+
+        <div class="space-y-5 p-6">
+          <div>
+            <p class="text-sm uppercase tracking-[0.14em] text-violet-400">Character Detail</p>
+            <h1 class="mt-1 text-4xl font-bold text-gray-100">{{ currentCharacter.name }}</h1>
+            <p class="mt-1 text-lg text-violet-300">{{ currentCharacter.title }}</p>
+          </div>
+
+          <dl class="space-y-3 text-sm text-gray-200">
+            <div class="rounded-lg border border-violet-900/60 bg-violet-950/30 px-4 py-3">
+              <dt class="text-xs uppercase tracking-[0.1em] text-violet-400">Race</dt>
+              <dd class="mt-1 text-base">{{ currentCharacter.race }}</dd>
+            </div>
+            <div class="rounded-lg border border-violet-900/60 bg-violet-950/30 px-4 py-3">
+              <dt class="text-xs uppercase tracking-[0.1em] text-violet-400">Faction</dt>
+              <dd class="mt-1 text-base">{{ factionName() }}</dd>
+            </div>
+            <div class="rounded-lg border border-violet-900/60 bg-violet-950/30 px-4 py-3">
+              <dt class="text-xs uppercase tracking-[0.1em] text-violet-400">Location</dt>
+              <dd class="mt-1 text-base">{{ locationName() }}</dd>
+            </div>
+          </dl>
+
+          <div>
+            <h2 class="text-lg font-semibold text-gray-100">Description</h2>
+            <p class="mt-2 leading-relaxed text-gray-300">{{ currentCharacter.shortDescription }}</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  } @else {
+    <section class="rounded-2xl border border-violet-900/70 bg-[#150726] p-8">
+      <h1 class="text-2xl font-semibold text-gray-100">Character Not Found</h1>
+      <p class="mt-2 text-gray-300">The character you requested does not exist in the current mock dataset.</p>
+      <a routerLink="/characters" class="mt-4 inline-flex rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-violet-50 hover:bg-violet-500">
+        Return to Character List
+      </a>
+    </section>
+  }
+</section>

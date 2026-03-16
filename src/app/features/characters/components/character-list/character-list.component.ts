@@ -1,4 +1,5 @@
 import { Component, computed, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { MOCK_FACTIONS } from '../../../../core/models/faction.model';
 import { MOCK_LOCATIONS } from '../../../../core/models/location.model';
 import { CharactersService } from '../../services/characters.service';
@@ -19,6 +20,7 @@ type SortOption = 'Recently Added' | 'Name (A-Z)' | 'Faction';
 @Component({
   selector: 'app-character-list',
   standalone: true,
+  imports: [RouterLink],
   templateUrl: './character-list.component.html'
 })
 export class CharacterListComponent {

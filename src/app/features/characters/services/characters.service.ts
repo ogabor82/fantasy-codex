@@ -8,4 +8,8 @@ export class CharactersService {
   getCharacters(): Character[] {
     return MOCK_CHARACTERS;
   }
+
+  getCharacterById(id: string): Character | undefined {
+    return MOCK_CHARACTERS.find((character) => character.id === id);
+  }
 }
